@@ -25,7 +25,7 @@
     </main>
     <footer class="footer">
         <?php
-            echo "<div class = 'foot__text'><h3>Создать веб-страницу с динамическим контентом</h3></div>";
+            echo "<div class = 'foot__text'><h3>Задание для самостоятельной работы «Hello, World!»</h3></div>";
         ?>
     </footer> 
 </body>
