@@ -9,7 +9,7 @@
 <body>
     <header class="header">
         <div class="header__wrapper">
-            <img src="images/logo.png" alt="" class="logo">
+            <img src="../images/logo.png" alt="" class="logo">
             <?php
                 echo "<div class = 'zadanie'><h1>2.1.Домашняя работа: Hello, World!</h1></div>";
             ?>

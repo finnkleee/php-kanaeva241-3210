@@ -9,7 +9,7 @@
 <body>
     <header class="header">
         <div class="header__wrapper">
-            <img src="images/logo.png" alt="" class="logo">
+            <img src="../images/logo.png" alt="" class="logo">
             <?php
                 echo "<div class = 'zadanie'><h1>4.1. Домашняя работа: Feedback Form</h1></div>";
             ?>
@@ -28,7 +28,7 @@
                 <input type="submit" value="Submit">
             </form>
             <?php
-                echo '<a href="index__main2.php">submit</a>';
+                echo '<a href="index_main2.php">submit</a>';
             ?>
         </div>
     </main>
