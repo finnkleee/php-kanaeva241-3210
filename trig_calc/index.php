@@ -49,7 +49,7 @@
 <body>
     <header class="header">
             <?php
-                echo "<div class = 'zadanie'><h1>2.2. Домашняя работа: Calculator</h1></div>";
+                echo "<div class = 'zadanie'><h1>3.2. Домашняя работа</h1></div>";
             ?>
     </header>
     
