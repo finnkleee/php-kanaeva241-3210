@@ -34,7 +34,31 @@ function calculateRecursive($expr) {
 }
 
 function evalSimple($expr) {
-    if (!preg_match('/^[0-9+\-*\/.]+$/', $expr)) return 'Недопустимое выражение';
-    return eval("return $expr;");
+    if (!preg_match('/^[0-9+\-*\/.]+$/', $expr)){
+        return 'Недопустимое выражение';
+    } else{
+        $parts = str_split($expr);
+        $oper = $parts[1];
+        $p1 = $parts[0];
+        $p2 = $parts[2];
+        switch ($oper) {
+        case '+':
+            $solve = $p1 + $p2;
+            return $solve;
+            break;
+        case '-':
+            $solve = $p1 - $p2;
+            return $solve;
+            break;
+        case '/':
+            $solve = $p1 / $p2;
+            return $solve;
+            break;
+        case '*':
+            $solve = $p1 * $p2;
+            return $solve;
+            break;
+        }
+    }
 }
 ?>
