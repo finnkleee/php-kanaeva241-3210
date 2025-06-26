@@ -1,6 +1,4 @@
 <?php
-
-
     function viewContacts($pdo, $sort = 'default', $page = 1) {
         $orderBy = match ($sort) {
             'surname' => 'surname',

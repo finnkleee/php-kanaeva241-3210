@@ -37,7 +37,7 @@
         $html .= '<div class="div-edit">';
         foreach ($contacts as $contact) {
             $html .= "<a href='index.php?page=delete&id={$contact['id']}'>";
-            $html .= htmlspecialchars($contact['surname'] . ' ' . substr($contact['name'], 0, 1) . '.');
+            $html .= htmlspecialchars($contact['surname'] . ' ' . mb_substr($contact['name'], 0, 1) . '.');
             $html .= "</a><br>";
         }
         $html .= '</div>';
