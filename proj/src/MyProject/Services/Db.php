@@ -10,7 +10,7 @@ class Db
  
     private function __construct()
     {
-        self::$instancesCount++;
+        self::$instance++;
 
         $dbOptions = (require __DIR__ . '\settings.php');
  

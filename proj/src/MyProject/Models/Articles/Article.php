@@ -15,10 +15,18 @@ class Article extends ActiveRecordEntity
     {
         return $this->name;
     }
+
+    public function setName(string $name){
+        $this->name = $name;
+    }
    
     public function getText(): string
     {
         return $this->text;
+    }
+
+    public function setText(string $text){
+        $this->text = $text;
     }
  
     protected static function getTableName(): string
