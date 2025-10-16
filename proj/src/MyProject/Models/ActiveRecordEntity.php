@@ -31,6 +31,7 @@ abstract class ActiveRecordEntity
         return $db->query('SELECT * FROM `' . static::getTableName() . '`;', [], static::class);
     }
     abstract protected static function getTableName(): string;
+    
     public static function getById(int $id): ?self
     {
         $db = Db::getInstance();
@@ -99,5 +100,15 @@ abstract class ActiveRecordEntity
         $sql = 'INSERT INTO ' . static::getTableName() . ' (' . $columnsViaSemicolon . ') VALUES (' . $paramsNamesViaSemicolon . ');';
         $db = Db::getInstance();
         $db->query($sql, $params2values, static::class);
+    }
+
+    public function delete(): void
+    {
+        $db = Db::getInstance();
+        $db->query(
+            'DELETE FROM `' . static::getTableName() . '` WHERE id = :id',
+            [':id' => $this->id]
+        );
+        $this->id = null;
     }
 }

@@ -54,7 +54,7 @@ class ArticlesController
     public function add(): void
     {
         $author = User::getById(1);
-        
+
         $article = new Article();
         $article->setAuthor($author);
         $article->setName('Новое название статьи');
@@ -63,5 +63,16 @@ class ArticlesController
         $article->save();
     
         var_dump($article);
+    }
+
+    public function delete (int $id)
+    {
+        $article = Article::getById($id);
+        if ($article) {
+            $article->delete();
+            echo ' Статья удалена';
+        }else{
+           echo ' Статьи с таким id не существует'; 
+        }
     }
 }
