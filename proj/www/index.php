@@ -1,20 +1,30 @@
 <?php
  
     spl_autoload_register(function (string $className) {
-
-    require_once __DIR__ . '/../src/' . str_replace('\\', '/', $className) . '.php';
-
+        require_once __DIR__ . '/../src/' . str_replace('\\', '/', $className) . '.php';
     });
-
-    $author =  new \MyProject\Models\Users\User('Иван');
-
-    $article = new \MyProject\Models\Articles\Article('Заголовок', 'Текст', $author);
-    var_dump($article);
+    $route = $_GET['route'] ?? '';
+    $routes = require __DIR__ . '/routes.php';
+    
+    $isRouteFound = false;
+    foreach ($routes as $pattern => $controllerAndAction) {
+        preg_match($pattern, $route, $matches);
+        if (!empty($matches)) {
+            $isRouteFound = true;
+            break;
+        }
+    }
+    
+    if (!$isRouteFound) {
+        echo 'Страница не найдена!';
+        return;
+    }
+    
+    unset($matches[0]);
+    
+    $controllerName = $controllerAndAction[0];
+    $actionName = $controllerAndAction[1];
+    
+    $controller = new $controllerName();
+    $controller->$actionName(...$matches);
 ?>
-/* <?php
-spl_autoload_register(function(string $className) {
-    require_once dirname(__DIR__).'\\'.$className.'.php';
-});
-$controller = new \src\Controllers\MainController();
-$controller->sayHello();
-$route = $_GET['route'] ?? '';
